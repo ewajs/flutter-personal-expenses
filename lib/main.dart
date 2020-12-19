@@ -1,13 +1,22 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expenses/widgets/new_transaction.dart';
+import 'package:flutter/services.dart';
 
 import 'widgets/new_transaction.dart';
 import 'widgets/transaction_list.dart';
 import 'widgets/chart.dart';
 import 'models/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Set Application Wide orientation constraints
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
